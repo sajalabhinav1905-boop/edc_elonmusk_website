@@ -1,0 +1,13 @@
+# OS generated files
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# Temporary files
+scratch/

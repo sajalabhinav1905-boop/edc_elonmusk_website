@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Entrepreneur Showcase: Explore the visionary journey, ventures, achievements, and core principles of Elon Musk.">
+  <title>Elon Musk — Interactive Entrepreneur Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+</head>
+<body>
+
+  <!-- Site Header & Sticky Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" aria-label="Musk Showcase Home">
+        <span class="brand-icon">EM</span>
+        <span>Musk Showcase</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#hero" class="active">Overview</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#ventures">Ventures</a></li>
+          <li><a href="#impact">Impact & Takeaways</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Introduction & Profile Overview -->
+    <section class="hero-section" id="hero" aria-labelledby="hero-name">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Portrait Component -->
+          <div class="portrait-wrapper">
+            <div class="portrait-frame">
+              <img id="profile-portrait" src="images/elon-musk.jpg" alt="Elon Musk portrait" loading="eager" width="320" height="368">
+            </div>
+            <div class="portrait-badge" id="portrait-attribution">
+              Photo: Wikimedia Commons / CC BY-SA 4.0
+            </div>
+          </div>
+
+          <!-- Bio & Introduction -->
+          <div class="hero-content">
+            <span class="hero-tag">Entrepreneur Profile</span>
+            <h1 class="hero-title" id="hero-name">Elon Musk</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Engineer, Industrial Designer & Serial Tech Entrepreneur</p>
+            <p class="hero-bio" id="hero-bio">
+              Elon Musk is a visionary entrepreneur, engineer, and investor known for fundamentally disrupting multiple global industries simultaneously—including aerospace, automotive manufacturing, clean energy, neurotechnology, satellite telecommunications, and artificial intelligence.
+            </p>
+
+            <div class="hero-quote-card" id="hero-quote">
+              "When something is important enough, you do it even if the odds are not in your favor. Boil things down to their most fundamental truths and reason up from there."
+            </div>
+
+            <div class="hero-actions">
+              <a href="#ventures" class="btn btn-primary">
+                <span>Explore Ventures</span>
+                <span>→</span>
+              </a>
+              <a href="#journey" class="btn btn-secondary">
+                <span>View Career Milestones</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Summary Metrics (Rendered dynamically from structured data) -->
+        <div class="hero-stats-grid" id="hero-stats-container" aria-label="Key entrepreneurial metrics">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Journey & Milestones (Chronological Timeline) -->
+    <section class="section" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Chronological Track</span>
+          <h2 class="section-title" id="journey-title">The Entrepreneurial Journey</h2>
+          <p class="section-desc">
+            Explore pivotal inflection points and defining milestones that shaped Musk's career from early internet software to reusable interplanetary rocketry.
+          </p>
+        </div>
+
+        <!-- Timeline Filter & Expansion Controls -->
+        <div class="timeline-controls">
+          <div class="filter-group" id="timeline-filters" role="group" aria-label="Filter journey by sector">
+            <button class="filter-chip active" data-filter="all">All Eras (9)</button>
+            <button class="filter-chip" data-filter="Aerospace">Aerospace</button>
+            <button class="filter-chip" data-filter="Clean Energy & EV">Clean Energy & EV</button>
+            <button class="filter-chip" data-filter="FinTech">FinTech</button>
+            <button class="filter-chip" data-filter="Artificial Intelligence">AI & Neuro</button>
+          </div>
+          <button id="timeline-toggle-all-btn" class="timeline-toggle-all-btn" aria-expanded="false">
+            <span id="toggle-all-text">Expand All Details</span>
+          </button>
+        </div>
+
+        <!-- Vertical Timeline (Rendered dynamically from data.js) -->
+        <div class="timeline-track" id="timeline-track" role="feed" aria-label="Chronological milestones">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Companies and Ventures (Interactive Explorer) -->
+    <section class="section" id="ventures" aria-labelledby="ventures-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Enterprise Ecosystem</span>
+          <h2 class="section-title" id="ventures-title">Companies & Ventures</h2>
+          <p class="section-desc">
+            Feature portfolio of disruptive enterprises founded, led, or architected by Elon Musk. Filter by domain or search for specific technologies.
+          </p>
+        </div>
+
+        <!-- Interactive Toolbar: Live Search & Industry Filter Chips -->
+        <div class="ventures-toolbar">
+          <div class="search-bar-wrapper">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="venture-search" class="search-input" placeholder="Search ventures by name, mission, or innovation (e.g., 'Starship', 'robotics', 'battery')..." aria-label="Search companies and ventures">
+            <button id="search-clear-btn" class="search-clear-btn" aria-label="Clear search input">✕</button>
+          </div>
+
+          <div class="filter-group" id="venture-filters" role="group" aria-label="Filter companies by industry">
+            <button class="filter-chip active" data-category="all">All Ventures</button>
+            <button class="filter-chip" data-category="aerospace">Aerospace & Telecom</button>
+            <button class="filter-chip" data-category="automotive">EV & Clean Energy</button>
+            <button class="filter-chip" data-category="ai">AI & Media</button>
+            <button class="filter-chip" data-category="neurotech">Neurotech</button>
+            <button class="filter-chip" data-category="infrastructure">Infrastructure</button>
+          </div>
+        </div>
+
+        <!-- Ventures Grid (Rendered dynamically from data.js) -->
+        <div class="ventures-grid" id="ventures-grid" aria-live="polite">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Impact and Takeaways -->
+    <section class="section" id="impact" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Macro Legacy & Mindset</span>
+          <h2 class="section-title" id="impact-title">Impact & Key Takeaways</h2>
+          <p class="section-desc">
+            Documented industrial breakthroughs with verifiable evidence, alongside fundamental mental models every entrepreneur and builder can apply.
+          </p>
+        </div>
+
+        <!-- 2 Major Achievements -->
+        <div class="impact-grid" id="achievements-container" aria-label="Meaningful achievements">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- 2 Core Entrepreneurial Takeaways -->
+        <h3 class="takeaways-heading">Foundational Entrepreneurial Lessons</h3>
+        <div class="takeaways-grid" id="takeaways-container" aria-label="Actionable takeaways">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Sources & Fact Attribution -->
+    <section class="section" id="sources" aria-labelledby="sources-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Fact-Checking & Research</span>
+          <h2 class="section-title" id="sources-title">Verified Sources & References</h2>
+          <p class="section-desc">
+            This showcase relies strictly on verifiable primary sources, including official corporate filings, SEC disclosures, NASA mission registries, and academic encyclopedias.
+          </p>
+        </div>
+
+        <!-- Sources Grid (Rendered dynamically from data.js) -->
+        <div class="sources-grid" id="sources-container" aria-label="Verified citation sources">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Venture Detail Modal Dialog -->
+  <div class="modal-overlay" id="venture-modal" role="dialog" aria-modal="true" aria-labelledby="modal-company-name" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-logo-badge" id="modal-logo-badge">X</div>
+          <div>
+            <h3 class="modal-company-name" id="modal-company-name">Company Name</h3>
+            <p class="modal-company-tagline" id="modal-company-tagline">Company Tagline</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="modal-banner-wrapper" id="modal-banner-wrapper">
+        <img id="modal-banner-img" class="modal-banner-img" src="" alt="">
+        <div class="modal-banner-overlay"></div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Metadata items -->
+        <div class="modal-meta-grid" id="modal-meta-grid">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div>
+          <h4 class="modal-section-heading">Musk's Role & Origin Story</h4>
+          <p class="modal-prose" id="modal-connection-text"></p>
+        </div>
+
+        <div>
+          <h4 class="modal-section-heading">Mission & Operations Overview</h4>
+          <p class="modal-prose" id="modal-description-text"></p>
+        </div>
+
+        <div>
+          <h4 class="modal-section-heading">Key Technical Breakthroughs</h4>
+          <ul class="modal-innovations-list" id="modal-innovations-list">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" id="modal-official-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <span>Visit Official Portal</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <button id="modal-close-footer-btn" class="btn btn-secondary">Close Inspector</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">Interactive Entrepreneur Showcase</div>
+          <p class="footer-brand-desc">
+            A dynamic, data-driven web educational exploration created to examine the leadership principles, engineering philosophies, and industrial achievements of Elon Musk.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-links-title">Quick Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Profile Overview</a></li>
+            <li><a href="#journey">Chronological Journey</a></li>
+            <li><a href="#ventures">Companies & Ventures</a></li>
+            <li><a href="#impact">Impact & Takeaways</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-links-title">Research Citations</div>
+          <ul class="footer-links-list">
+            <li><a href="https://www.sec.gov" target="_blank" rel="noopener noreferrer">SEC 10-K Filings</a></li>
+            <li><a href="https://www.spacex.com" target="_blank" rel="noopener noreferrer">SpaceX Launches</a></li>
+            <li><a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer">NASA Commercial Crew</a></li>
+            <li><a href="#sources">View All 6 Sources</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Compiled with verified historical and corporate public records.</div>
+        <div>Designed with Vanilla ES6 JavaScript & CSS Custom Properties.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
